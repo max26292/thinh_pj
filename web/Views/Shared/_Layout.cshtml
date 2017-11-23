@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -16,13 +17,27 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Trang chủ", "Index", "MyProject", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dịch vụ <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Xe Bốn Chỗ", "boncho", "MyProject")</li>
+                            <li>@Html.ActionLink("Xe Bảy Chỗ", "baycho", "MyProject")</li>
+                            <li>@Html.ActionLink("Xe Mười sáu Chỗ", "muoisaucho", "MyProject")</li>
+                            <li>@Html.ActionLink("Xe Hai Chín Chỗ", "haichincho", "MyProject")</li>
+                            <li>@Html.ActionLink("Xe Năm Mươi Chỗ", "nammuoicho", "MyProject")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Tin Tức", "news", "MyProject")</li>
+                    <li>@Html.ActionLink("Liên Hệ", "news", "MyProject")</li>                
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li> <a href="#"> Đăng kí</a></li>
+                    <li><a href="#">Đăng nhập</a></li>
                 </ul>
             </div>
         </div>
