@@ -3,10 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Dịch vụ cho thuê xe</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     
+    <meta name="description" content="The description of my page" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -32,13 +33,23 @@
                         </ul>
                     </li>
                     <li>@Html.ActionLink("Tin Tức", "news", "MyProject")</li>
-                    <li>@Html.ActionLink("Liên Hệ", "news", "MyProject")</li>                
+                    <li>@Html.ActionLink("Liên Hệ", "news", "MyProject")</li>
 
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li> <a href="#"> Đăng kí</a></li>
-                    <li><a href="#">Đăng nhập</a></li>
-                </ul>
+                @if (Session["UserName"] == null)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Đăng ký", "register", "MyProject")</li>
+                        <li>@Html.ActionLink("Đăng nhập", "login", "MyProject")</li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">@Session["UserName"]</a></li>
+                        <li><a href="#">Log out</a> </li>
+                    </ul>
+                }
             </div>
         </div>
     </div>

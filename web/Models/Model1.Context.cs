@@ -13,10 +13,10 @@ namespace web.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLban_xeEntities : DbContext
+    public partial class mydatabase : DbContext
     {
-        public QLban_xeEntities()
-            : base("name=QLban_xeEntities")
+        public mydatabase()
+            : base("name=mydatabase")
         {
         }
     
@@ -25,5 +25,6 @@ namespace web.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<User> Users { get; set; }
     }
 }
