@@ -24,32 +24,76 @@ namespace web.Controllers
         }
         public ActionResult boncho()
         {
-            return View();
+            using(mydatabase db = new mydatabase())
+            {
+                List<Item> itemlist = new List<Item>();
+                
+                itemlist = db.Items.Where(x => x.Category_id == 1).ToList();
+                return View(itemlist);
+            }
+            
+            
+            
 
         }
         public ActionResult baycho()
         {
-            return View();
+
+            using (mydatabase db = new mydatabase())
+            {
+                List<Item> itemlist = new List<Item>();
+                itemlist = db.Items.Where(x => x.Category_id == 2).ToList();
+                return View(itemlist);
+            }
+
+
+
 
         }
         public ActionResult muoisaucho()
         {
-            return View();
+            using (mydatabase db = new mydatabase())
+            {
+                List<Item> itemlist = new List<Item>();
+
+                itemlist = db.Items.Where(x => x.Category_id == 3).ToList();
+                return View(itemlist);
+            }
+
 
         }
         public ActionResult haichincho()
         {
-            return View();
+            using (mydatabase db = new mydatabase())
+            {
+                List<Item> itemlist = new List<Item>();
+
+                itemlist = db.Items.Where(x => x.Category_id == 4).ToList();
+                return View(itemlist);
+            }
+
 
         }
         public ActionResult nammuoicho()
         {
-            return View();
+            using (mydatabase db = new mydatabase())
+            {
+                List<Item> itemlist = new List<Item>();
+
+                itemlist = db.Items.Where(x => x.Category_id == 5).ToList();
+                return View(itemlist);
+            }
+
 
         }
         public ActionResult news()
         {
-            return View();
+            using (mydatabase db = new mydatabase())
+            {
+                return View(db.Items.ToList());
+                //return View("Home");
+
+            }
 
         }
        //register
@@ -122,6 +166,11 @@ namespace web.Controllers
                 }
             }
             return View();
+        }
+        public ActionResult logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index");
         }
        
     }

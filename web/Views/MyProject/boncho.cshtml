@@ -1,7 +1,18 @@
-﻿
+﻿@model IEnumerable<web.Models.Item>
+
 @{
-    ViewBag.Title = "Xe Bốn chỗ";
+    ViewBag.Title = "boncho";
 }
 
 <h2>boncho</h2>
+<h3> haha</h3>
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.name</td>
+            <td><img src="@item.img_path" alt="Alternate Text" /></td>
+        </tr>
+    }
 
+</table>

@@ -11,19 +11,19 @@ namespace web.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class User
+    
+    public partial class Category
     {
-        [Key]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Category()
+        {
+            this.Items = new HashSet<Item>();
+        }
+    
         public int Id { get; set; }
-        [Required(ErrorMessage = "vui long nhap ten dang nhap!!!!")]
-
-        public string username { get; set; }
-        [Required(ErrorMessage = "Vui long nhap mat khau!!!!")]
-        public string password { get; set; }
-        [Required(ErrorMessage = "Vui long nhap lai mat khau !!!!")]
-        public string confirmpassword { get; set; }
-        public string address { get; set; }
+        public string name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Item> Items { get; set; }
     }
 }

@@ -47,7 +47,7 @@
                 {
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">@Session["UserName"]</a></li>
-                        <li><a href="#">Log out</a> </li>
+                        <li>@Html.ActionLink("Đăng xuất","logout","Myproject", new {@class = "btn  btn-danger btn-sm" }) </li>
                     </ul>
                 }
             </div>
