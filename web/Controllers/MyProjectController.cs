@@ -27,8 +27,10 @@ namespace web.Controllers
             using(mydatabase db = new mydatabase())
             {
                 List<Item> itemlist = new List<Item>();
-                
+
                 itemlist = db.Items.Where(x => x.Category_id == 1).ToList();
+                //var itemlist = (from i in db.Items join c in db.Categories on i.Category_id equals c.Id where i.Category_id == 1 select new { i.Id, i.img_path, car_name = i.name, category_name = c.name });
+                //ViewData["car_data"] = itemlist;
                 return View(itemlist);
             }
             

@@ -19,7 +19,7 @@ namespace web.Models
 
        
         public DbSet<Item> items { get; set; }
-        
+        public DbSet<Category> category { get; set; }
 
     }
     

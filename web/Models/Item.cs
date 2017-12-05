@@ -12,12 +12,13 @@ namespace web.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Item
+    public class Item
     {
         public int Id { get; set; }
         public int Category_id { get; set; }
         public string name { get; set; }
         public string img_path { get; set; }    
-        public virtual Category Category { get; set; }
+        public  Category Category { get; set; }
+        
     }
 }
