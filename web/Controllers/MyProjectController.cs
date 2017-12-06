@@ -22,6 +22,10 @@ namespace web.Controllers
             }
 
         }
+        public ActionResult cpanel(int ?id)
+        {
+            return View();
+        }
         public ActionResult boncho()
         {
             using(mydatabase db = new mydatabase())
@@ -172,6 +176,7 @@ namespace web.Controllers
                 {
                     //Session["userID"] = usr.Id.ToString();
                     Session["UserName"] = usr.username.ToString();
+                    Session["User_role"] = usr.role.ToString();
                     return RedirectToAction("Index");
                 }
                 else

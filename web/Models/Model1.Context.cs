@@ -25,9 +25,9 @@ namespace web.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<news> news { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

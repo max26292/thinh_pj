@@ -1,0 +1,25 @@
+﻿@model web.Models.news
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Html.DisplayFor(model => model.title)</h2>
+
+<div class="container">
+    <div class="row">
+       
+           @Html.Raw(Model.content)
+        
+    </div>
+
+</div>
+<p>
+    @if (Session["UserName"] != null && Session["User_role"].Equals("1"))
+    {
+
+
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+        @Html.ActionLink("Back to List", "Index")
+    }
+</p>

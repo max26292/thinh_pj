@@ -18,6 +18,7 @@ namespace web.Models
         public int Category_id { get; set; }
         public string name { get; set; }
         public string img_path { get; set; }
+        public Nullable<int> price { get; set; }
     
         public virtual Category Category { get; set; }
     }

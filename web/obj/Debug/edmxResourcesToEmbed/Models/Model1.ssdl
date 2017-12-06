@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mydata.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="100" />
+    <Property Name="img_path" Type="nvarchar(max)" />
+    <Property Name="price" Type="int" />
+  </EntityType>
+  <EntityType Name="news">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="content" Type="text" />
+    <Property Name="status " Type="int" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="nvarchar" MaxLength="150" />
+    <Property Name="role" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Item_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="Category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="mydataStoreContainer">
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="news" EntityType="Self.news" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Item_Category" Association="Self.FK_Item_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

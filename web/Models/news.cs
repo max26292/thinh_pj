@@ -11,11 +11,16 @@ namespace web.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+
     public partial class news
     {
         public int Id { get; set; }
         public string title { get; set; }
+        [AllowHtml]
+        [UIHint("tinymce_full")]
+        [Display(Name = "content")]
         public string content { get; set; }
         public Nullable<int> status_ { get; set; }
     }

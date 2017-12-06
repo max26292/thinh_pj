@@ -1,4 +1,7 @@
-﻿.col-item {
+﻿body {
+  font-family: 'Times New Roman', Times, serif; }
+
+.col-item {
   border: 1px solid #E1E1E1;
   border-radius: 10px;
   background: #FFF; }

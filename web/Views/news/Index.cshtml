@@ -1,0 +1,45 @@
+﻿@model IEnumerable<web.Models.news>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tin Tức</h2>
+
+<p>
+    
+   @if (Session["UserName"] != null && Session["User_role"].ToString() =="1")
+   {
+        @Html.ActionLink("Create New", "Create")
+    }
+    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label>Tin tức</label>
+        </th>
+              
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                
+                @Html.ActionLink( item.title,"Details","news",new { id = item.Id },null)
+            </td>
+            
+            <td>
+               @if (Session["UserName"] != null && Session["User_role"].Equals("1"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                }
+            </td>
+        </tr>
+    }
+
+</table>

@@ -21,9 +21,11 @@ namespace web.Models
 
         public string username { get; set; }
         [Required(ErrorMessage = "Vui long nhap mat khau!!!!")]
+
         public string password { get; set; }
         [Required(ErrorMessage = "Vui long nhap lai mat khau !!!!")]
         public string confirmpassword { get; set; }
         public string address { get; set; }
+        public int role { get; set; }
     }
 }

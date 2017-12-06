@@ -33,8 +33,8 @@
                             <li>@Html.ActionLink("Xe Năm Mươi Chỗ", "nammuoicho", "MyProject")</li>
                         </ul>
                     </li>
-                    <li>@Html.ActionLink("Tin Tức", "news", "MyProject")</li>
-                    <li>@Html.ActionLink("Liên Hệ", "news", "MyProject")</li>
+                    <li>@Html.ActionLink("Tin Tức", "Index", "news")</li>
+                    <li>@Html.ActionLink("Liên Hệ", "news", "news")</li>
 
                 </ul>
                 @if (Session["UserName"] == null)
@@ -48,7 +48,8 @@
                 {
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">@Session["UserName"]</a></li>
-                        <li>@Html.ActionLink("Đăng xuất","logout","Myproject", new {@class = "btn  btn-danger btn-sm" }) </li>
+                        <li>@Html.ActionLink("Đăng xuất", "logout", "MyProject","", new {@class = "btn  btn-danger btn-sm" }) </li>
+                        
                     </ul>
                 }
             </div>
@@ -66,5 +67,6 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.js"> </script>
+    
 </body>
 </html>
