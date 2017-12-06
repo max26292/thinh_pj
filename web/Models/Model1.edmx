@@ -21,6 +21,15 @@
           <Property Name="name" Type="nchar" MaxLength="100" />
           <Property Name="img_path" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="news">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" />
+          <Property Name="content" Type="text" />
+          <Property Name="status " Type="int" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -45,6 +54,7 @@
         <EntityContainer Name="mydataStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="news" EntityType="Self.news" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Item_Category" Association="Self.FK_Item_Category">
             <End Role="Category" EntitySet="Category" />
@@ -72,6 +82,7 @@
             <End Role="Category" EntitySet="Categories" />
             <End Role="Item" EntitySet="Items" />
           </AssociationSet>
+          <EntitySet Name="news" EntityType="mydata.news" />
         </EntityContainer>
         <EntityType Name="Category">
           <Key>
@@ -103,6 +114,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="news">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="status_" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -133,6 +153,16 @@
                 <ScalarProperty Name="img_path" ColumnName="img_path" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="Category_id" ColumnName="Category_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="news">
+            <EntityTypeMapping TypeName="mydata.news">
+              <MappingFragment StoreEntitySet="news">
+                <ScalarProperty Name="status_" ColumnName="status " />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

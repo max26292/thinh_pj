@@ -26,12 +26,15 @@ namespace web.Controllers
         {
             using(mydatabase db = new mydatabase())
             {
-                List<Item> itemlist = new List<Item>();
+                //List<Item> itemlist = new List<Item>();
 
-                itemlist = db.Items.Where(x => x.Category_id == 1).ToList();
-                //var itemlist = (from i in db.Items join c in db.Categories on i.Category_id equals c.Id where i.Category_id == 1 select new { i.Id, i.img_path, car_name = i.name, category_name = c.name });
-                //ViewData["car_data"] = itemlist;
-                return View(itemlist);
+                //itemlist = db.Items.Where(x => x.Category_id == 1).ToList();
+                var itemlist = db.Items.Where(x=> x.Category_id ==1).ToList();
+                var category_item = db.Categories.Where(x=> x.Id ==1);
+                var List = new data_return_car();
+                List.items = itemlist;
+                List.category_eachitem = category_item.Single();
+                return View(List);
             }
             
             
@@ -43,9 +46,12 @@ namespace web.Controllers
 
             using (mydatabase db = new mydatabase())
             {
-                List<Item> itemlist = new List<Item>();
-                itemlist = db.Items.Where(x => x.Category_id == 2).ToList();
-                return View(itemlist);
+                var itemlist = db.Items.Where(x => x.Category_id == 2).ToList();
+                var category_item = db.Categories.Where(x => x.Id == 2);
+                var List1 = new data_return_car();
+                List1.items = itemlist;
+                List1.category_eachitem = category_item.Single();
+                return View(List1);
             }
 
 
@@ -56,10 +62,12 @@ namespace web.Controllers
         {
             using (mydatabase db = new mydatabase())
             {
-                List<Item> itemlist = new List<Item>();
-
-                itemlist = db.Items.Where(x => x.Category_id == 3).ToList();
-                return View(itemlist);
+                var itemlist = db.Items.Where(x => x.Category_id == 3).ToList();
+                var category_item = db.Categories.Where(x => x.Id == 3);
+                var List2 = new data_return_car();
+                List2.items = itemlist;
+                List2.category_eachitem = category_item.Single();
+                return View(List2);
             }
 
 
@@ -68,10 +76,12 @@ namespace web.Controllers
         {
             using (mydatabase db = new mydatabase())
             {
-                List<Item> itemlist = new List<Item>();
-
-                itemlist = db.Items.Where(x => x.Category_id == 4).ToList();
-                return View(itemlist);
+                var itemlist = db.Items.Where(x => x.Category_id == 4).ToList();
+                var category_item = db.Categories.Where(x => x.Id == 4);
+                var List3= new data_return_car();
+                List3.items = itemlist;
+                List3.category_eachitem = category_item.Single();
+                return View(List3);
             }
 
 
@@ -80,10 +90,12 @@ namespace web.Controllers
         {
             using (mydatabase db = new mydatabase())
             {
-                List<Item> itemlist = new List<Item>();
-
-                itemlist = db.Items.Where(x => x.Category_id == 5).ToList();
-                return View(itemlist);
+                var itemlist = db.Items.Where(x => x.Category_id == 5).ToList();
+                var category_item = db.Categories.Where(x => x.Id == 5);
+                var List4 = new data_return_car();
+                List4.items = itemlist;
+                List4.category_eachitem = category_item.Single();
+                return View(List4);
             }
 
 

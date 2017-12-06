@@ -165,3 +165,64 @@ Hover the image
     color: #FFF;
     font-weight: bold;
 }
+.post-icon .post-thumbnail b {
+    background: #986212;
+    color: #fff;
+    font-size: 20px;
+    height: 35px;
+    border-radius: 150px;
+    width: 35px;
+    text-align: center;
+    display: block;
+    right: 30%;
+    top: 15px;
+    line-height: 35px;
+    position: absolute;
+}
+.post-icon .post-thumbnail {
+    text-align: center;
+    font-size: 70px;
+    height: 150px;
+    line-height: 150px;
+}
+.post-icon .post-thumbnail i {
+    color: #a96a0d;
+}
+
+.fa, .contact_h {
+    margin-right: 5px;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+        font-size: 14px;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.h3.entry-title, h3.entry-title a {
+    color: #a90000;
+    margin-top: 0px !important;
+    margin-left: 5px !important;
+}
+.entry-title {
+    overflow: hidden;
+}
+.entry-excerpt {
+    height: 92px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+}
+.ow-button-hover {
+    border: 3px solid #40953b;
+    border-radius: 3px;
+    padding: 2px 5px;
+    margin: 5px auto;
+    display: table;
+    color: #317d2d;
+}
+a {
+    text-decoration: none;
+}
